@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var choices =['rock','paper', 'scissors'];
+        var x=0;
+        var i= 0;
+        var t= 0;
+        var ties = 0;
+       
+    function rockPapperScissors(){do{   
+     function theStart(){
+            //////player check answer/////
+        let playerOne = prompt("choose rock,paper or scissors.");
+        if (choices.indexOf(playerOne) >=0 ) //If the user number matches one of preset numbers
+        {     
+        return(playerOne);
+     
+         }
+        else{
+        alert("not a choice try again"); 
+        return(theStart());
+         }}
+         
+       //////game/////
+    function theGame(){
+        var computerChoice = choices[Math.floor(Math.random() * choices.length)]  
+        var playerChoice = theStart();
+        console.log(computerChoice);
+        console.log(playerChoice);
+       ///////////if player chooses rock/////////////////////////////////////////////////////////
+        if( playerChoice == 'rock'&& computerChoice == 'scissors' ){
+            console. log("rock beats paper player wins");
+            return i++ ;
+                
+            }else if( playerChoice == 'rock' && computerChoice == 'paper'){
+                console.log("paper covers rock computer wins");
+                 return t++;
+            
+                }else if (playerChoice=='rock' && computerChoice =='rock'){
+                console.log("tie no one wins");
+                return (ties++);
+            }
+    /////////////////// ////////player chooses paper///////////////////////////////////////////////
+        if( playerChoice == 'paper'&& computerChoice == 'scissors' ){
+            console. log("scissors cut paper computer wins");
+            return t++;
+
+        }else if( playerChoice == 'paper' && computerChoice == 'paper'){
+                console.log("tie no one wins");
+                return (ties++);
+
+            }else if (playerChoice=='paper' && computerChoice =='rock'){
+                console.log("paper covers rock player wins");
+                return i++;
+            }
+
+       /////////////////////////////////////////////player chooses scissors/////////////////////
+        if( playerChoice == 'scissors'&& computerChoice == 'scissors' ){
+            console. log("tie no one wins");
+            return (ties++);
+
+        }else if( playerChoice == 'scissors' && computerChoice == 'paper'){ 
+            console.log("scissors cut paper player wins");
+            return i++;
+
+        }else if (playerChoice=='scissors' && computerChoice =='rock'){
+                console.log("rock beats scissors computer wins");}
+               return t++;
+
+            }
+        theGame();
+      
+      /////////////////////////////////endgame//////////////////////////////////////////////////
+        function reapeat(){
+         let playAgain = prompt("would you like tou play again Y on N");
+         if (playAgain == 'Y'){
+            x++;
+         }else if (playAgain == 'N'){
+             console.log('thanks for playing');
+             x= -x;
+         }else{
+             alert('wrong input');
+             return(reapeat());
+         }
+      }
+      reapeat();
+    }while(x>0)
+}
+///////////////////////////////////scoreboard/////////////////////////////////
+rockPapperScissors();
+     
+ function theScore(){
+    if(i>t ){
+        console.log("player score " +i+ " computer score " +t+" ties "+ties);
+        console.log('you won yay!');
+    }
+    else if(i==t){
+        console.log("player score "+i+ " computer score " +t+" ties "+ties);
+        console.log("tie one one wins");
+    }
+    else{
+        console.log("player score "+i+ " computer score " +t+" ties "+ties);
+        console.log("you lost");
+    }
+ }theScore();
+    </script>
+</body>
+</html>
