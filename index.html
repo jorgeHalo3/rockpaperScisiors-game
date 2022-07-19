@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="playerChoice-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document it worked yes</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id = "title"><b>rock, paper, Scissors game</b></div>
+    <div id = "scoreboard">
+        <p1>player score</p1>
+        
+        <p3>computer score</p3>
+    </div>
+    <div id="scoreboard2">
+        <p1 id = "player-score"></p1>
+        <p2 id = "announcement"></p2>
+        <p3 id = "computer-score"></p3>
+    </div>
+    
+    <div class = "img">
+        <img src= "photos/rock.avif" alt = rock>
+        <img src="photos/paper.avif" alt="paper">
+        <img src="photos/scissors.avif" alt="scissors"> 
+    </div>
+
+    <div id = "Choices">
+        <button id = 'Rock' value="Rock" onclick="rockChoice()"  >Rock</button>
+        <button id = 'Paper' value = "Paper" onclick = "paperChoice()"  >Paper</button>
+        <button id = 'Scissors' value="Scissors" onclick="scissorsChoice()">Scissors</button>
+       
+    </div>
+    <div id = options>
+        
+        <button id = "emdGame" onclick="theScore()">end game</button>
+
+    </div>
+    
+    <script > 
+    var choices =['Rock','Paper', 'Scissors'];
+    var playerScore = 0;
+    document.getElementById("player-score").innerHTML = playerScore++;
+    var computerScore = 0;
+    document.getElementById("computer-score").innerHTML = computerScore++;
+    var ties = 0;
+
+//////////////////ROCK BUTTON////////////////////
+function rockChoice(){
+    let playRock = "Rock"
+    var computerChoice = choices[Math.floor(Math.random() * choices.length)]  
+    console.log(playRock)
+    console.log(computerChoice)
+
+    if( playRock == 'Rock'&& computerChoice == 'Scissors' ){
+    document.getElementById("announcement").innerHTML=("Rock beats Scissors player wins");
+    document.getElementById("player-score").innerHTML = playerScore++;
+        
+    }else if( playRock == 'Rock' && computerChoice == 'Paper'){
+    document.getElementById("announcement").innerHTML=("Paper covers Rock computer wins");
+    document.getElementById("computer-score").innerHTML = computerScore++;
+        
+}else if (playRock=='Rock' && computerChoice =='Rock'){
+            document.getElementById("announcement").innerHTML=("tie no one wins");
+
+       
+    }
+
+}
+//////////////////PAPER BUTTON////////////////////////////
+function paperChoice(){
+    let playPaper  = "Paper"
+    var computerChoice = choices[Math.floor(Math.random() * choices.length)]  
+    console.log(playPaper)
+    console.log(computerChoice)
+
+    if( playPaper == 'Paper'&& computerChoice == 'Scissors' ){
+    document.getElementById("announcement").innerHTML= ("Scissors beats Paper computer wins");
+    document.getElementById("computer-score").innerHTML = computerScore++;
+        
+    }else if( playPaper == 'Paper' && computerChoice == 'Paper'){
+        document.getElementById("announcement").innerHTML=("Tie");
+         
+    
+        }else if (playPaper=='Paper' && computerChoice =='Rock'){
+        document.getElementById("announcement").innerHTML=("Paper covers rock player wins");
+        document.getElementById("player-score").innerHTML = playerScore++;
+    }
+
+}
+//////////////////SCISSORS BUTTON/////////////////////
+function scissorsChoice(){
+    let playScissors = "Scissors"
+    var computerChoice = choices[Math.floor(Math.random() * choices.length)]  
+    console.log(playScissors)
+    console.log(computerChoice)
+
+    if( playScissors == 'Scissors'&& computerChoice == 'Scissors' ){
+        document.getElementById("announcement").innerHTML=("Tie");
+    
+        
+    }else if( playScissors == 'Scissors' && computerChoice == 'Paper'){
+        document.getElementById("announcement").innerHTML=("Scisors cuts paper player wins");
+         document.getElementById("player-score").innerHTML = playerScore++;
+    
+        }else if (playScissors=='Scissors' && computerChoice =='Rock'){
+        document.getElementById("announcement").innerHTML=("Rock beats Scissors computer wins");
+        document.getElementById("computer-score").innerHTML = computerScore++;
+    }
+
+}
+
+
+function theScore(){
+if(playerScore> computerScore){
+document.getElementById("announcement").innerHTML = "Player Wins!!!!"
+   playerScore = 0
+   document.getElementById("player-score").innerHTML = playerScore++
+   computerScore= 0 
+   document.getElementById("computer-score").innerHTML = computerScore++
+}
+else if (computerScore>playerScore){
+    document.getElementById("announcement").innerHTML = "computer Wins!!!!"
+    playerScore =0
+    document.getElementById("player-score").innerHTML = playerScore++;
+    computerScore=0
+    document.getElementById("computer-score").innerHTML = computerScore++;
+
+    
+}else{
+    document.getElementById("announcement").innerHTML = "tie!!!!"
+    playerScore=0
+    document.getElementById("player-score").innerHTML = playerScore++;
+    computerScore=0
+    document.getElementById("computer-score").innerHTML = computerScore++;
+
+}
+
+}
+</script>
+    </body>
+</html>
